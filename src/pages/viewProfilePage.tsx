@@ -7,6 +7,9 @@ import { UserAvartar } from '../components/userAvatar';
 import ErrorIcon from '@material-ui/icons/Error';
 import { Redirect } from "react-router-dom";
 import { TweetList } from "../components/tweetList";
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -76,6 +79,15 @@ export const ViewProfilePage: React.FC<{}> = ({}) => {
                 <Typography variant="h5" align="center">
                     {profile.username}
                 </Typography>
+                <Link underline="none" component={RouterLink} to="/profile/edit" color="inherit">
+                    <Button color="inherit">
+                        <span className="profEditImg">
+                            Edit
+                            <img src="editIcon.png" alt="edit icon"/>
+                        </span>
+                        
+                    </Button>
+                </Link>
             </Paper>
             <TweetList userIdToFilterBy={profile.id}/>
         </>

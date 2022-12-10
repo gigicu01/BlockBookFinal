@@ -36,11 +36,13 @@ export const NavBar = ({}) => {
   const  { user } = useAuth() 
 
   return (
+    <div className="nav">
     <div className={classes.root}>
       <AppBar position="static" elevation={0}>
         <Toolbar>
+          <img src="bb_logo.png" alt="BlockBook Logo" height="60" />
           <Typography variant="h6" className={classes.title}>
-                <Link underline="none" component={RouterLink} to="/" color="inherit">
+                <Link underline="none" color="inherit">
               BlockBook
             </Link>
           </Typography>
@@ -59,6 +61,12 @@ export const NavBar = ({}) => {
                </Link>
               
           }
+
+            <Link underline="none" component={RouterLink} to="/" color="inherit">
+              <Button color="inherit">
+                Feed
+              </Button>
+            </Link>
             <IconButton color="inherit">
               <NotificationBell />
             </IconButton>
@@ -71,6 +79,7 @@ export const NavBar = ({}) => {
             </Link>
         </Toolbar>
       </AppBar>
+    </div>
     </div>
   );
 }
