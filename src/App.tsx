@@ -1,13 +1,14 @@
 import React from 'react'
-import './App.css'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { SignUpPage } from './pages/signUpPage'
-import SignInPage from './pages/signInPage'
-import { supabaseClient } from './api/supabaseClient'
-import { SignOutPage } from './pages/signOutPage'
-import { NavBar } from './components/navBar'
-import { Container } from '@material-ui/core'
-import { AuthProvider } from './contexts/authContext'
+import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { SignUpPage } from './pages/signUpPage';
+import SignInPage from './pages/signInPage';
+import { supabaseClient } from './api/supabaseClient';
+import { SignOutPage } from './pages/signOutPage';
+import { NavBar } from './components/navBar';
+import Footer from './components/footer';
+import { Container } from '@material-ui/core';
+import { AuthProvider } from './contexts/authContext';
 import EditProfilePage from './pages/editProfilePage';
 import { ErrorPage } from './pages/errorPage';
 import { ConfirmEmailPage } from './pages/confirmEmailPage';
@@ -50,6 +51,7 @@ function App() {
             </Route>
           </Switch>
         </Container>
+        <Footer/>
       </Router>
       </QueryClientProvider>
     </AuthProvider>
