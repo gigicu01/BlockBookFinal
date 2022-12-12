@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-function Footer(){ //got this navbar stuff also from The Net Ninja
+function Footer(){ 
+    //basic footer, just contains some text
     return ( 
         <html>
             <div className='footer'>

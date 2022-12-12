@@ -18,7 +18,7 @@ const useStyles = makeStyles(t => ({
 
 export const ErrorPage = () => {
     const classes = useStyles()
-
+//just displays an error
     return (
         <Paper variant="outlined" className={classes.container}>
             <ErrorIcon style={{fontSize: 60}} />            

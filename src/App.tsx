@@ -16,13 +16,16 @@ import { ViewProfilePage } from './pages/viewProfilePage';
 import { TweetPage } from './pages/tweetPage'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+//This controls the website, it displays all of the components to the screen 
+//The nav bar and footer will always appear and the pages inside of the <Router> tag will switch depending on
+//what was clicked in the navbar
 const queryClient = new QueryClient()
 function App() {
   return (
     <AuthProvider> 
       <QueryClientProvider client={queryClient}>
       <Router>
-        <NavBar />
+        <NavBar /> 
         <Container maxWidth="sm">
           <Switch>
             <Route path="/signup">

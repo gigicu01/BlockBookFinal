@@ -25,6 +25,9 @@ export type TweetCardProps = {
   onFavoriteToggle: (tweetId: number) => void
   userId?: string
 }
+// is the actual format that the tweets take
+// made up of five components
+// avatar (profile picture), the user name, the time it was posted, the content and the favorited icon (likes)
 
 export const TweetCard: React.FC<TweetCardProps> = ({ tweet, f, onFavoriteToggle, userId }) => {
   const classes = useStyles()

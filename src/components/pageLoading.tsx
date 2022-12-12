@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
       alignItems: "center", 
   }
 }))
-
+//displays the spinning circle if the page is loading
 export const PageLoading = () => {
     const { loaderContainer } = useStyles()
 

@@ -22,12 +22,12 @@ export const ConfirmEmailPage = () => {
     let email = new URLSearchParams(window.location.search).get(
         "email"
     )
-
+//if it cannot find the email it will give an error
     if(!email) {
         return <Redirect to="/error" />
     }
     email = decodeURIComponent(email)
-
+//if the email is found it will give this message
     return (
         <Paper variant="outlined" className={classes.container}>
             <MailIcon style={{fontSize: 60}}/>            
