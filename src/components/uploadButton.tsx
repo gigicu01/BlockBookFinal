@@ -7,7 +7,7 @@ export type UploadButtonProps = {
   isLoading?: boolean;
   className?: string;
 };
-
+//allows a user to pic a profile picture from their computer
 export const UploadButton = ({
   onUpload,
   isLoading,

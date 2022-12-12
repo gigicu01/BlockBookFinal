@@ -24,7 +24,7 @@ export const SignOutPage = () => {
   useEffect(() => {
     supabaseClient.auth.signOut().then(console.log);
   }, []);
-
+//the sign out page confirms that it has been signed out 
   return (
     <Paper variant="outlined" className={classes.paper}>
       <Typography variant="h5" align="center">

@@ -49,7 +49,8 @@ export const TweetForm: React.FC<TweetFormProps> = ({ profile, submit }) => {
       const { tweet } = input
       submit({ user_id: profile.id, content: tweet })
     }
-
+// this is the form that allows a user to enter their own post content
+// made up of two components the content (textfield) and then the submit (tweet) button
     return <Paper variant="outlined" className={classes.paper}>
       <UserAvartar className={classes.avatar} name={username} path={avatar_url} />
       <form className={classes.container}>

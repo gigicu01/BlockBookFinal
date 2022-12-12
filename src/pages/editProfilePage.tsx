@@ -38,11 +38,11 @@ const EditProfilePage: React.FC<CreateProfilePageProps> = ({}) => {
   const [usernameExists, setUsernameExists] = useState(false)
   const [onUpload, uploadedAvatarUrl, uploadError, isUploading] = useUpload(user)
 
-  if (!user) {
+  if (!user) { //if there is no user logged in it redirects to the sign in page
     return <Redirect to={"/signin"} />;
   }
 
-  if (profileLoading) {
+  if (profileLoading) { //if the page is not loading it will send it to a loading page
     return <PageLoading />;
   }
 
@@ -50,7 +50,7 @@ const EditProfilePage: React.FC<CreateProfilePageProps> = ({}) => {
     username,
     website,
   }) => {
-    setUsernameExists(false)
+    setUsernameExists(false) //checks to see if the username exists
     setSaved(false);
     setIsSubmitting(true);
     const { error } = await supabaseClient.from<definitions["profiles"]>(PROFILES_TABLE).upsert({
@@ -69,7 +69,7 @@ const EditProfilePage: React.FC<CreateProfilePageProps> = ({}) => {
     } 
     setIsSubmitting(false);
   };
-
+//if no errors the page will render and show that the edited profile has been saved
   return (
     <Paper variant="outlined" className={classes.paper}>
       <Typography variant="h5" align="center">

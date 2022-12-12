@@ -22,7 +22,7 @@ export const TweetPage = () => {
         enabled: !!user?.id,
         staleTime: 3600
     })
-    const queryClient = useQueryClient()
+    const queryClient = useQueryClient() 
 
     const mutation = useMutation(createTweet, {
         onMutate: (tweet) => {
@@ -60,7 +60,7 @@ export const TweetPage = () => {
             }
         }
       })
-
+//actually rendering the page with the list of tweets compiled above
     return (
         <div className={classes.container}>
             { data ? <TweetForm profile={data} submit={mutation.mutate} />: null }

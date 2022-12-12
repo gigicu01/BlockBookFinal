@@ -55,7 +55,7 @@ export const TweetList: React.FC<TweetListProps> = ({ userIdToFilterBy }) => {
     fetchOlderTweets
   } = useTweetInfiniteQuery(userIdToFilterBy)
 
-  if (isLoading) {
+  if (isLoading) { // shows the loading circle while its compiling the tweet list
     return (
       <div className={classes.container}>
         <CircularProgress />

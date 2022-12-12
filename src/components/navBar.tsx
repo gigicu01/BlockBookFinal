@@ -30,7 +30,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export type NavBarProps = {
 }
+/*
+The navbar will always disply the logo and "BlockBook" along with a sign in/out button depending on the state of user and the feed and profile
+user controls what displays and checks to see if there is a user logged in
+it will automatically change depending on if a user logs in
 
+
+ */
 export const NavBar = ({}) => {
   const classes = useStyles();
   const  { user } = useAuth() 
@@ -45,6 +51,7 @@ export const NavBar = ({}) => {
                 <Link underline="none" color="inherit">
               BlockBook
             </Link>
+            
           </Typography>
           {
               user ? 
