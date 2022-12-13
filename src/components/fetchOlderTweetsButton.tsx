@@ -36,7 +36,7 @@ export const FetchOlderTweetsButton: React.FC<FetchOlderTweetsButtonProps> = ({
       default:
         return (
           <Button color="primary" size="small" onClick={fetchOlderTweets}>
-            Fetch more tweets!
+            {/* Fetch more tweets! */}
           </Button>
         )
     }
