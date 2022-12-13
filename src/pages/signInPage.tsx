@@ -54,6 +54,7 @@ const SignInPage = () => {
     if (error) {
       // probably should tell the user about the error, but lets implement that later
       console.error(error);
+      alert(error.message);
       return;
     }
 

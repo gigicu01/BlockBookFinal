@@ -38,9 +38,6 @@ const EditProfilePage: React.FC<CreateProfilePageProps> = ({}) => {
   const [usernameExists, setUsernameExists] = useState(false)
   const [onUpload, uploadedAvatarUrl, uploadError, isUploading] = useUpload(user)
 
-  if (!user) { //if there is no user logged in it redirects to the sign in page
-    return <Redirect to={"/signin"} />;
-  }
 
   if (profileLoading) { //if the page is not loading it will send it to a loading page
     return <PageLoading />;

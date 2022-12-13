@@ -46,7 +46,7 @@ export const NavBar = ({}) => {
     <div className={classes.root}>
       <AppBar position="static" elevation={0}>
         <Toolbar>
-          <img src="bb_logo.png" alt="BlockBook Logo" height="60" />
+          <img src="/bb_logo.png" alt="BlockBook Logo" height="60" />
           <Typography variant="h6" className={classes.title}>
                 <Link underline="none" color="inherit">
               BlockBook

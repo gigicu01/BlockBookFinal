@@ -1,6 +1,6 @@
 /*basic styling for the footer, nav and profile page*/
 body {
-  background: -webkit-radial-gradient(rgb(76, 161, 246),rgb(22, 100, 218),rgb(28, 90, 183),rgb(12, 33, 154),rgb(7,50,130), rgb(5, 64, 122));
+  background-image:  -webkit-linear-gradient(bottom , rgb(76, 161, 246),rgb(22, 100, 218),rgb(28, 90, 183),rgb(12, 33, 154),rgb(7,50,130), rgb(5, 64, 122));
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -23,7 +23,7 @@ code {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #3F51B5;
+  background-color: rgb(7, 38, 96);
   text-align: center;
   font-size:x-small;
   padding: 5px;

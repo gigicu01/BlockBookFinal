@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { QueryFunction } from 'react-query';
 import { supabaseClient } from '../api/supabaseClient';
-import { TWEETS_TABLE } from '../constants';
+import { FAVORITES_TABLE, TWEETS_TABLE } from '../constants';
 import { Profile } from '../hooks/useProfile';
 import { getRandomInt } from '../util/random';
 import { definitions } from './types';
@@ -11,8 +11,8 @@ type TweetServerResponse = {
     content: string
     createdat: string,
     favorited_users: { id: string, username: string }[]
-    tweet_author: definitions["profiles"] 
-} 
+    tweet_author: definitions["profiles"]
+}
 
 export type Tweet = {
     id: number
@@ -22,7 +22,7 @@ export type Tweet = {
     author: definitions["profiles"]
     createdAt: string
     content: string,
-    hasBeenAddedByMutate?: boolean 
+    hasBeenAddedByMutate?: boolean
 }
 
 export type RawTweet = {
@@ -47,8 +47,8 @@ export const fetchTweets: QueryFunction<TweetResponse, [string, string | undefin
     const [_key, loggedInUserId, userIdToFilterTweetsBy] = queryKey
     const { to, from } = pageParam || {}
 
-    const params = { 
-        u_id: userIdToFilterTweetsBy || null, 
+    const params = {
+        u_id: userIdToFilterTweetsBy || null,
         t_from: from,
         t_to: to
     }
@@ -65,7 +65,7 @@ export const fetchTweets: QueryFunction<TweetResponse, [string, string | undefin
     // catch up to the latest, if the rate of new tweet > the pagination limit.
     // 
     // Twitter circumvents this problem as their feed isn't chronological.
-    const ascending = !!from 
+    const ascending = !!from
 
     const query = supabaseClient
         .rpc<TweetServerResponse>('get_tweets', params)
@@ -74,10 +74,10 @@ export const fetchTweets: QueryFunction<TweetResponse, [string, string | undefin
 
     let { data, error } = await query
 
-    if(error) {
+    if (error) {
         throw new Error(error.message);
-    } 
-    if(!data) {
+    }
+    if (!data) {
         return {
             tweets: []
         }
@@ -87,20 +87,20 @@ export const fetchTweets: QueryFunction<TweetResponse, [string, string | undefin
         tweets: data.map(fromResponseToTweet(loggedInUserId as string | undefined)),
     }
 
-    if(data.length) {
+    if (data.length) {
         // initial query
-        if(!to && !from) {
+        if (!to && !from) {
             output.next = data[0].createdat
-            output.previous = data[data.length -1].createdat
-        } 
+            output.previous = data[data.length - 1].createdat
+        }
 
         // we are going back in time
-        if(to && !from) {
-            output.previous = data[data.length -1].createdat
+        if (to && !from) {
+            output.previous = data[data.length - 1].createdat
         }
 
         // we are fetching new posts here
-        if(from && !to) {
+        if (from && !to) {
             output.next = data[0].createdat
         }
     }
@@ -108,7 +108,7 @@ export const fetchTweets: QueryFunction<TweetResponse, [string, string | undefin
     return output
 }
 
-const fromResponseToTweet = (loggedInUserId?: string, )=>(response: TweetServerResponse): Tweet => {
+const fromResponseToTweet = (loggedInUserId?: string,) => (response: TweetServerResponse): Tweet => {
     const { id, content, createdat, favorited_users, tweet_author } = response;
     return {
         id,
@@ -118,7 +118,7 @@ const fromResponseToTweet = (loggedInUserId?: string, )=>(response: TweetServerR
         author: tweet_author,
         isFavorited: favorited_users?.findIndex(u => u.id === loggedInUserId) > -1,
         favorites: favorited_users ? favorited_users.length : 0
-    }    
+    }
 }
 
 export const fromRawTweetToTweet = (rawTweet: RawTweet, user: Profile) => {
@@ -152,10 +152,13 @@ export const createTweet = async (tweet: AddTweetRequestBody) => {
     const { data, error } = await supabaseClient
         .from<RawTweet>(TWEETS_TABLE)
         .insert(tweet)
-   
-    if(error) {
+
+    if (error) {
         throw new Error(error.message)
     }
 
     return data || []
 }
+
+
+

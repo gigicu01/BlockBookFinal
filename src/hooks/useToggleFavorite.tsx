@@ -7,9 +7,12 @@ import { useAuth } from '../contexts/authContext'
 export const useToggleFavorite = (userIdToFilterBy?: string) => {
   const { user } = useAuth()
   const queryClient = useQueryClient()
+  console.log("user??", user)
   const mutation = useMutation(
-    async (tweetId: number) =>
-      user && (await toggleFavorite(user?.id, tweetId)),
+    async (tweetId: number) => {
+      console.log("tweenId", tweetId)
+      user && (await toggleFavorite(user?.id, tweetId))
+    },
     {
       // optimistic updating, no need to make another fetch call
       onMutate: (tweetId) => {

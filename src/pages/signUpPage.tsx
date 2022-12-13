@@ -42,7 +42,7 @@ export const SignUpPage = () => {
     if (error) {
       // we should alert the user but we can do that later.
       console.log(error);
-      alert(error)
+      alert(error.message)
       return;
     }
 
